@@ -1,0 +1,128 @@
+use('ecomm-accounts');
+
+db.accounts.insertMany([
+  {
+    name: "Túlio Yoshimura",
+    email: "yoshimura_tulio@gmail.com",
+    password: "5pAwX2diMD@",
+    createdDate: ISODate(),
+    cpf: "88760498005",
+    phone: "42 935243869",
+    monthIncome: 10000,
+    address: {
+      street: "Rua João Martins da Silva Filho",
+      number: "230",
+      complement: "Apto 801",
+      neighborhood: "Alto Boqueirão",
+      zipCode: "81720342",
+      city: "Curitiba",
+      state: "PR"
+    },
+    card: {
+      cardHolder: "Túlio Yoshimura",
+      cardNumber: "4984396850928015",
+      cardExp: "11/2026",
+      cardCvv: "592",
+      invoiceDueDate: "10"
+    }
+  },
+  {
+    name: "Mariana Hamada",
+    email: "marianahamada@outlook.com",
+    password: "cejU00llJR",
+    createdDate: ISODate(),
+    cpf: "99708937002",
+    phone: "51 935716066",
+    monthIncome: 8900,
+    address: {
+      street: "Rua Júlio de Castilhos",
+      number: "711",
+      complement: "Apto 502",
+      neighborhood: "Centro",
+      zipCode: "95520975",
+      city: "Osório",
+      state: "RS"
+    },
+    card: {
+      cardHolder: "Mariana Hamada",
+      cardNumber: "4984082607880291",
+      cardExp: "12/2029",
+      cardCvv: "712",
+      invoiceDueDate: "15"
+    }
+  },
+  {
+    name: "Alice Gonçalves",
+    email: "goncalvesalice@hotmail.com",
+    password: "0iDCWlg7Wq",
+    createdDate: ISODate(),
+    cpf: "28636426006",
+    phone: "61 923354645",
+    monthIncome: 48990,
+    address: {
+      street: "Quadra 511 Conjunto 11",
+      number: "88",
+      neighborhood: "Recanto das Emas",
+      zipCode: "95520975",
+      city: "Brasília",
+      state: "DF"
+    },
+    card: {
+      cardHolder: "Alice Gonçalves",
+      cardNumber: "4841477254729457",
+      cardExp: "03/2029",
+      cardCvv: "983",
+      invoiceDueDate: "25"
+    }
+  },
+  {
+    name: "Renato Mantovani",
+    email: "mantovani_renato@yahoo.com.br",
+    password: "uLTTFz86dl",
+    createdDate: ISODate(),
+    cpf: "88760498005",
+    phone: "82 931432219",
+    monthIncome: 185780,
+    address: {
+      street: "Rua Prof. Sandoval Arroxelas",
+      number: "625",
+      complement: "Apto 902",
+      neighborhood: "Ponta Verde",
+      zipCode: "95520975",
+      city: "Maceió",
+      state: "AL"
+    },
+    card: {
+      cardHolder: "Renato Mantovani",
+      cardNumber: "4984486235584177",
+      cardExp: "01/2024",
+      cardCvv: "409",
+      invoiceDueDate: "5"
+    }
+  },
+  {
+    name: "João A. Carvalho",
+    email: "joaoaraujocarvalho@teleworm.us",
+    password: "uKeipoo5coo",
+    createdDate: ISODate(),
+    cpf: "49706811044",
+    phone: "11 986308752",
+    monthIncome: 5640,
+    address: {
+      street: "Rua Judith Queiroz Morais",
+      number: "1441",
+      complement: "Apto 902",
+      neighborhood: "Centro",
+      zipCode: "07020040",
+      city: "Guarulhos",
+      state: "SP"
+    },
+    card: {
+      cardHolder: "João A. Carvalho",
+      cardNumber: "4717015711999205",
+      cardExp: "03/2024",
+      cardCvv: "926",
+      invoiceDueDate: "15"
+    }
+  },
+];
