@@ -16,8 +16,8 @@ services:
   account-container:
     container_name: ecommcpv-account
     build: ./accounts/
-    volumes:
-      - ./accounts/:/app/accounts
+    environment:
+      - ./acccounts/.env
     ports:
       - 8001:8001
     depends_on:
@@ -45,3 +45,4 @@ services:
 
 volumes:
   mongodb:
+  accounts:
