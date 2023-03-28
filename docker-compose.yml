@@ -27,7 +27,11 @@ services:
     container_name: ecommcpv-anti-fraud
     build: ./anti-fraud/
     environment:
-      - ./anti-fraud/src/config/.env
+      MONGO_ACCOUNT_HOST: "mongodb"
+      MONGO_ACCOUNT_USER: "admin"
+      MONGO_ACCOUNT_PASSWORD: "secret"
+      MONGO_DATABASE: "ecomm-anti-fraud"
+      MONGO_ACCOUNT_PORT: 27017
     volumes:
       - ./anti-fraud/:/app/anti-fraud
     ports:
