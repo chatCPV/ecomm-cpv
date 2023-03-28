@@ -13,25 +13,25 @@ services:
     ports:
       - 27017:27017
     
-  account-container:
-    container_name: ecommcpv-account
-    build: ./accounts/
-    volumes:
-      - ./accounts/:/app/accounts
-    ports:
-      - 8001:8001
-    depends_on:
-      - mongodb
+  # account-container:
+  #   container_name: ecommcpv-account
+  #   build: ./accounts/
+  #   volumes:
+  #     - ./accounts/:/app/accounts
+  #   ports:
+  #     - 8001:8001
+  #   depends_on:
+  #     - mongodb
 
-  anti-fraud-container:
-    container_name: ecommcpv-anti-fraud
-    build: ./anti-fraud/
-    volumes:
-      - ./anti-fraud/:/app/anti-fraud
-    ports:
-      - 8002:8002
-    depends_on:
-      - mongodb
+  # anti-fraud-container:
+  #   container_name: ecommcpv-anti-fraud
+  #   build: ./anti-fraud/
+  #   volumes:
+  #     - ./anti-fraud/:/app/anti-fraud
+  #   ports:
+  #     - 8002:8002
+  #   depends_on:
+  #     - mongodb
 
   transactions-container:
     container_name: ecommcpv-transactions

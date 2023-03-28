@@ -6,6 +6,7 @@ const transactionSchema = new mongoose.Schema({
   cardNumber: {type: String, required: true},
   cardExp: {type: String, required: true},
   cardCvv: {type: String, required: true},
+  status: {type: String},
 
 });
 
