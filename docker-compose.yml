@@ -26,6 +26,8 @@ services:
   anti-fraud-container:
     container_name: ecommcpv-anti-fraud
     build: ./anti-fraud/
+    environment:
+      - ./anti-fraud/src/config/.env
     volumes:
       - ./anti-fraud/:/app/anti-fraud
     ports:

@@ -2,7 +2,7 @@ const express = require('express')
 const routes = require('./src/routes/index')
 const db = require('./src/config/dbConnect')
 
-const PORT = process.env.PORT || 3002
+const PORT = process.env.PORT || 8002
 
 require('dotenv').config()
 
