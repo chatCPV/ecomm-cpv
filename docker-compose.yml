@@ -20,7 +20,7 @@ services:
       MONGO_ACCOUNT_HOST: "mongodb"
       MONGO_ACCOUNT_USER: "admin"
       MONGO_ACCOUNT_PASSWORD: "secret"
-      MONGO_DATABASE: "ecomm-account"
+      MONGO_ACCOUNT_DATABASE: "ecomm-account"
       MONGO_ACCOUNT_PORT: 27017
     ports:
       - 8001:8001
