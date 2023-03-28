@@ -23,6 +23,50 @@ class AnalysesController {
       }
     })
   }
+
+  static approveAnalysis = async (req, res) => {
+    const { id } = req.params
+    const currentAnalysis = await AnalysisModel.findById(id, { status: 1 })
+
+    if (!currentAnalysis.status === statuses.ANALYSIS) {
+      res.status(409).send('Status can not be changed')
+    } else {
+      AnalysisModel.findByIdAndUpdate(
+        id,
+        { $set: { status: statuses.APPROVED } },
+        { new: true },
+        (err) => {
+          if (err) {
+            res.status(500).send({ message: `${err.message} - Failed` })
+          } else {
+            res.status(204).send({ message: 'Status successfully updated' })
+          }
+        },
+      )
+    }
+  }
+
+  static reproveAnalysis = async (req, res) => {
+    const { id } = req.params
+    const currentAnalysis = await AnalysisModel.findById(id, { status: 1 })
+
+    if (!currentAnalysis.status === statuses.ANALYSIS) {
+      res.status(409).send('Status can not be changed')
+    } else {
+      AnalysisModel.findByIdAndUpdate(
+        id,
+        { $set: { status: statuses.REPROVED } },
+        { new: true },
+        (err) => {
+          if (err) {
+            res.status(500).send({ message: `${err.message} - Failed` })
+          } else {
+            res.status(204).send({ message: 'Status successfully updated' })
+          }
+        },
+      )
+    }
+  }
 }
 
 module.exports = AnalysesController
