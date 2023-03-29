@@ -7,7 +7,7 @@ class AccountController {
     
     Accounts.findById(id, { card: 0 }, (err, accountById) => {
       if (err) {
-        res.status(400).send({ message: "Id not found!"});
+        res.status(404).send({ message: "Id not found!"});
       } else {
         res.status(200).send(accountById);
       }
