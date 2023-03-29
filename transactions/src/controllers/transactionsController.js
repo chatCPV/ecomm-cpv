@@ -23,9 +23,9 @@ async function createTransaction(req, res) {
     ) {
       const transactionRejected = { ...transaction, status: 'Rejeitada' }
       const newTransaction = await Transactions.create(transactionRejected)
-      const { _id, status } = newTransaction
+      const { _id: transactionId, status } = newTransaction
       const newTransactionRejected = {
-        transactionId: _id,
+        transactionId,
         status,
       }
 
@@ -35,23 +35,23 @@ async function createTransaction(req, res) {
     if (transactionValue >= (monthIncome / 2)) {
       const transactionUnderReview = { ...transaction, status: 'Em análise' }
       const newTransaction = await Transactions.create(transactionUnderReview)
-      const { _id, status } = newTransaction
+      const { _id: transactionId, status } = newTransaction
       const newTransactionUnderReview = {
-        transactionId: _id,
+        transactionId,
         status,
       }
 
       return res
         .status(303)
-        .header({ Location: `/payments/${newTransactionUnderReview.transactionId}` })
+        .header({ Location: `/transactions/${newTransactionUnderReview.transactionId}` })
         .json(newTransactionUnderReview)
     }
 
     const approvedTransaction = { ...transaction, status: 'Aprovada' }
     const newTransaction = await Transactions.create(approvedTransaction)
-    const { _id, status } = newTransaction
+    const { _id: transactionId, status } = newTransaction
     const newApprovedTransaction = {
-      transactionId: _id,
+      transactionId,
       status,
     }
 
