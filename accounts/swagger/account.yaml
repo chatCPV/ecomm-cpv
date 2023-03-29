@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Ecomm-cpv / API Accounts
-  description: API Accounts 
+  description: API Accounts
   version: 1.0.0
   termsOfService: https://mockapi.io/docs
   contact:
@@ -15,7 +15,7 @@ servers:
   description: API Accounts
 paths:
   /accounts/cardVerify:
-    
+
     post:
       tags:
       - Accounts
@@ -34,7 +34,7 @@ paths:
                 $ref: "#/components/schemas/CardValidRes"
         400:
           description: Invalid
-          content: 
+          content:
             aplication/json:
               example: "Invalid info!"
 
@@ -62,7 +62,7 @@ paths:
           content:
             application/json:
               example: "Id not found"
-  
+
 components:
   schemas:
     AccountId:
