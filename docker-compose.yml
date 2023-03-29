@@ -18,6 +18,7 @@ services:
     build: ./accounts/
     environment:
       MONGO_ANTI_URL: mongodb://admin:secret@mongodb:27017/ecomm-account?authSource=admin
+
     volumes:
       - ./accounts/:/app/accounts
     ports:
@@ -41,7 +42,7 @@ services:
     container_name: ecommcpv-transactions
     build: ./transactions/
     environment:
-      MONGO_ANTI_URL: mongodb://admin:secret@mongodb:27017/ecomm-transactions?authSource=admin
+      MONGO_TRANSACTIONS_URL: mongodb://admin:secret@mongodb:27017/ecomm-transactions?authSource=admin
     volumes:
       - ./transactions/:/app/transactions
     ports:
