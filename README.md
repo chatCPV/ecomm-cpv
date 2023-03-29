@@ -3,7 +3,7 @@
 Final project for Alura LevelUp! at PagoNxt.
 
 [![License MIT](https://img.shields.io/github/license/chatcpv/ecomm-cpv)](https://github.com/chatCPV/ecomm-cpv/blob/main/LICENSE.md)
-[![CodeFactor](https://www.codefactor.io/repository/github/chatcpv/ecomm-cpv/badge/dev)](https://www.codefactor.io/repository/github/chatcpv/ecomm-cpv/overview/main)
+[![CodeFactor](https://www.codefactor.io/repository/github/chatcpv/ecomm-cpv/badge/main)](https://www.codefactor.io/repository/github/chatcpv/ecomm-cpv/overview/main)
 
 ## Stacks
 
