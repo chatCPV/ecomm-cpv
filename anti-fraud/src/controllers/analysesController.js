@@ -67,6 +67,20 @@ class AnalysesController {
       )
     }
   }
+
+  static getAnalysisById = (req, res) => {
+    const { id } = req.params
+  
+    if (err) {
+      res.status(500).send({ message: `${err.message} - Failed` })
+    } else {
+        const singleAnalysis = AnalysisModel.findById(id);
+        if (!singleAnalysis) {
+          res.status(404).send({ message: 'Analysis not found'})
+        }
+        return res.status(200).send(singleAnalysis.toJSON())
+    }
+  }
 }
 
 module.exports = AnalysesController
