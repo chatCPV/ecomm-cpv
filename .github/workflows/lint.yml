@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 18
       - name: Build the Docker image
-        run: docker-compose --build
+        run: docker-compose build
       - name: ESLint Code Review
         uses: yousufkalim/eslint-action@latest
         with:
