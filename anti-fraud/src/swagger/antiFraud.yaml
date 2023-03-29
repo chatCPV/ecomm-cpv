@@ -4,7 +4,7 @@ info:
   description: API Antifraud
   version: 0.0.1
   termsOfService: https://mockapi.io/docs
-  contact: 
+  contact:
     name: Chat CPV
     email: marcelle.rosa@pagonxt.com
   license:
@@ -15,23 +15,23 @@ servers:
     description: API Antifraud
 paths:
   /antifraud:
-    get: 
+    get:
       tags:
       - Antifraud
       summary: List all under analysis
       responses:
         200:
           description: Success
-          content: 
+          content:
             application/json:
               schema:
                 $ref: "#/components/schemas/analysesSchema"
         500:
           description: Error
-          content: 
+          content:
             application/json:
               example:  Failed
-    post: 
+    post:
       tags:
       - Antifraud
       summary: Create a new fraud analysis
@@ -43,8 +43,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/analysesSchema'
         500:
-          description: Error 
-          content: 
+          description: Error
+          content:
             application/json:
               example: Failed
   /antifraud/{id}:
@@ -58,21 +58,21 @@ paths:
       tags:
         - Antifraud
       summary: Detail fraud analysis by ID
-      responses: 
+      responses:
         200:
           description: Success
-          content: 
+          content:
             application/json:
-              schema: 
+              schema:
                 $ref: "#/components/schemas/analysesSchema"
         404:
           description: Analysis not found
           content:
             application/json:
               example: ID Not Found
-        500:           
+        500:
           description: Error
-          content: 
+          content:
             application/json:
               example: Failed
   /antifraud/approve/{id}:
@@ -99,7 +99,7 @@ paths:
               example: Status can not be changed
         500:
           description: Error
-          content: 
+          content:
             application/json:
               example: Failed
 components:
