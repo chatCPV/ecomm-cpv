@@ -1,5 +1,10 @@
 const { Router } = require('express')
-const { createTransaction, getTransactionById,updateTransactionByIdApproved,updateTransactionByIdRejected } = require('../controllers/transactionsController')
+const {
+  createTransaction,
+  getTransactionById,
+  updateTransactionByIdApproved,
+  updateTransactionByIdRejected,
+} = require('../controllers/transactionsController')
 
 const transactionsRouter = Router()
 
