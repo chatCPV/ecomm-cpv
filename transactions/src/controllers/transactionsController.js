@@ -1,4 +1,4 @@
-const user = require('../helpers/mockUser')
+const { monthIncome, card } = require('../helpers/mockUser.json')
 const Transactions = require('../models/Transaction')
 
 async function createTransaction(req, res) {
@@ -11,8 +11,7 @@ async function createTransaction(req, res) {
       cardExp,
       cardCvv,
     } = transaction
-
-    const { monthIncome, card } = user
+    console.log(cardHolder)
 
     if (
       cardHolder !== card.cardHolder
