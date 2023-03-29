@@ -2,13 +2,7 @@ const mongoose = require('mongoose')
 const path = require('path')
 require('dotenv').config({ path: path.resolve(__dirname, './.env') })
 
-const HOST = process.env.MONGO_ACCOUNT_HOST
-const USER = process.env.MONGO_ACCOUNT_USER
-const PASSWORD = process.env.MONGO_ACCOUNT_PASSWORD
-const DATABASE = process.env.MONGO_ACCOUNT_DATABASE
-const PORT = process.env.MONGO_ACCOUNT_PORT
-
-mongoose.connect(`mongodb://${USER}:${PASSWORD}@${HOST}:${PORT}/${DATABASE}?authSource=admin`)
+mongoose.connect(process.env.MONGO_DATABASE)
 
 const db = mongoose.connection
 
