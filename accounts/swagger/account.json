@@ -26,7 +26,7 @@
           "tags": [
             "Accounts"
           ],
-          "summary": "List user Id and his month income",
+          "summary": "List account Id and his month income",
           "requestBody": {
             "content": {
               "application/json": {
@@ -51,7 +51,7 @@
               "description": "Invalid",
               "content": {
                 "aplication/json": {
-                  "example": "Invalid card number or invalid info!"
+                  "example": "Invalid info!"
                 }
               }
             }
@@ -74,10 +74,10 @@
           "tags": [
             "Accounts"
           ],
-          "summary": "List an user by his Id",
+          "summary": "List an account by his Id",
           "responses": {
             "200": {
-              "description": "Sucesso",
+              "description": "Account found",
               "content": {
                 "application/json": {
                   "schema": {
@@ -178,7 +178,7 @@
               "format": "uuid"
             },
             "monthIncome": {
-              "type": "string"
+              "type": "number"
             }
           }
         }

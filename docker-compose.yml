@@ -16,12 +16,10 @@ services:
   account-container:
     container_name: ecommcpv-account
     build: ./accounts/
+    volumes:
+      - ./accounts/:/app/accounts
     environment:
-      MONGO_ACCOUNT_HOST: "mongodb"
-      MONGO_ACCOUNT_USER: "admin"
-      MONGO_ACCOUNT_PASSWORD: "secret"
-      MONGO_ACCOUNT_DATABASE: "ecomm-account"
-      MONGO_ACCOUNT_PORT: 27017
+      MONGO_ACCOUNT_URL: "mongodb://admin:secret@mongodb:27017/ecomm-account?authSource=admin"
     ports:
       - 8001:8001
     depends_on:
