@@ -1,8 +1,8 @@
-const app = require('./src/app.js');
-require('dotenv/config');
+const app = require('./src/app')
+require('dotenv/config')
 
-const port = process.env.PORT;
+const { PORT } = process.env
 
-app.listen(port, () => {
-    console.log(`Servidor escutando em http://localhost:${port}`);
-});
+app.listen(PORT, () => {
+  console.log(`Servidor escutando em http://localhost:${PORT}`)
+})

@@ -1,9 +1,13 @@
-const transactions = require('./transactionsRoute.js');
+const transactionsRouter = require('./transactionsRoute')
 
 const routes = (app) => {
-    app.use(
-        transactions,
-    );
-};
+  app.route('/').get((_req, res) => {
+    res.status(200).send('EcommCPV Project')
+  })
 
-module.exports = routes;
+  app.use(
+    transactionsRouter,
+  )
+}
+
+module.exports = routes

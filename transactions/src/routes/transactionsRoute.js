@@ -1,9 +1,9 @@
-  const { Router } = require('express');
-  const transactionsController = require('../controllers/transactionsController.js');
+const { Router } = require('express')
+const createTransaction = require('../controllers/transactionsController')
 
-  const transactionsRouter = Router();
+const transactionsRouter = Router()
 
-  transactionsRouter
-    .post('/transactions', transactionsController.createTransaction);
+transactionsRouter
+  .post('/transactions', createTransaction)
 
-  module.export = transactionsRouter;
+module.exports = transactionsRouter
