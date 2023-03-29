@@ -43,11 +43,11 @@ async function createTransaction(req, res) {
 async function getTransactionById(req, res) {
   try {
     const { id } = req.params
-    if (!id) {
+    const transactionInfo = await Transactions.findById(id)
+    if (!transactionInfo) {
       throw new Error('Transação não encontrada')
     }
 
-    const transactionInfo = await Transactions.findById(id)
     const { _id: transactionId, status } = transactionInfo
 
     const transaction = {
@@ -58,6 +58,10 @@ async function getTransactionById(req, res) {
 
     return res.status(200).json(transaction)
   } catch (error) {
+    if (error.message === 'Transação não encontrada') {
+      return res.status(400).json(error.message)
+    }
+
     if (error.message === 'Transação não encontrada') {
       return res.status(400).json(error.message)
     }
