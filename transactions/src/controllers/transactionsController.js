@@ -11,7 +11,6 @@ async function createTransaction(req, res) {
       cardExp,
       cardCvv,
     } = transaction
-    console.log(cardHolder)
 
     if (
       cardHolder !== card.cardHolder
