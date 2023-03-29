@@ -70,16 +70,16 @@ class AnalysesController {
 
   static getAnalysisById = (req, res) => {
     const { id } = req.params
-  
-    if (err) {
-      res.status(500).send({ message: `${err.message} - Failed` })
-    } else {
-        const singleAnalysis = AnalysisModel.findById(id);
-        if (!singleAnalysis) {
-          res.status(404).send({ message: 'Analysis not found'})
-        }
-        return res.status(200).send(singleAnalysis.toJSON())
-    }
+
+    const singleAnalysis = AnalysisModel.findById(id, (err, analyses) => {
+      if (err) {
+        res.status(500).send({ message: `${err.message} - Failed` })
+      } else if (!singleAnalysis) {
+        res.status(404).send({ message: 'Analysis not found' })
+      } else {
+        res.status(200).send(analyses.toJSON())
+      }
+    })
   }
 }
 
