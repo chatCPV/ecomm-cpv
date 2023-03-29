@@ -44,6 +44,8 @@ services:
       MONGO_DATABASE: mongodb://admin:secret@mongodb:27017/ecomm-transactions?authSource=admin
     volumes:
       - ./transactions/:/app/transactions
+    environment:
+      MONGO_TRANSACTIONS_URL: mongodb://admin:secret@mongodb:27017/ecomm-transactions?authSource=admin
     ports:
       - 8003:8003
     depends_on:
