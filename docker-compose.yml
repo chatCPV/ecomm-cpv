@@ -12,7 +12,7 @@ services:
         MONGO_INITDB_ROOT_PASSWORD: secret
     ports:
       - 27017:27017
-    
+
   account-container:
     container_name: ecommcpv-account
     build: ./accounts/
