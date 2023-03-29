@@ -59,11 +59,7 @@ async function getTransactionById(req, res) {
     return res.status(200).json(transaction)
   } catch (error) {
     if (error.message === 'Transação não encontrada') {
-      return res.status(400).json(error.message)
-    }
-
-    if (error.message === 'Transação não encontrada') {
-      return res.status(400).json(error.message)
+      return res.status(404).json(error.message)
     }
 
     return res.status(500).json(error.message)
