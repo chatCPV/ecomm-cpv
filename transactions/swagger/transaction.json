@@ -15,6 +15,16 @@
     "/transactions": {
       "post": {
         "summary": "Insere uma nova transação",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Transaction"
+              }
+            }
+          }
+        },
         "responses": {
           "201": {
             "description": "Transação inserida com sucesso",
