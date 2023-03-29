@@ -1,81 +1,155 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const accountSchema = new mongoose.Schema(
+
   {
+
     id: { type: String },
+
     name: {
+
       type: String,
+
       required: true,
+
     },
+
     email: {
+
       type: String,
+
       required: true,
+
     },
+
     password: {
+
       type: String,
+
       required: true,
+
     },
-    cpf: { 
+
+    cpf: {
+
       type: String,
-      required: true
+
+      required: true,
+
     },
-    phone: { 
+
+    phone: {
+
       type: String,
-      required: true
+
+      required: true,
+
     },
+
     monthIncome: {
+
       type: Number,
-      required: true
+
+      required: true,
+
     },
+
     address: {
+
       street: {
+
         type: String,
+
         required: true,
+
       },
+
       number: {
+
         type: String,
+
         required: true,
+
       },
+
       complement: { type: String },
+
       neighborhood: { type: String },
-      zipCode: { 
+
+      zipCode: {
+
         type: String,
-        required: true
+
+        required: true,
+
       },
+
       city: {
+
         type: String,
+
         required: true,
+
       },
+
       state: {
+
         type: String,
+
         required: true,
+
       },
+
     },
+
     card: {
+
       cardHolder: {
+
         type: String,
-        required: true
+
+        required: true,
+
       },
+
       cardNumber: {
+
         type: String,
-        required: true
+
+        required: true,
+
       },
+
       cardExp: {
+
         type: String,
-        required: true
+
+        required: true,
+
       },
+
       cardCvv: {
+
         type: String,
-        required: true
+
+        required: true,
+
       },
+
       invoiceDueDate: {
+
         type: String,
-        required: true
-      }
+
+        required: true,
+
+      },
+
     },
+
   },
-);
 
-const Accounts = mongoose.model('accounts', accountSchema);
+)
 
-module.exports = Accounts;
+const Accounts = mongoose.model('accounts', accountSchema)
+
+module.exports = Accounts

@@ -1,14 +1,14 @@
-const express = require('express');
-const routes = require('./routes/index');
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('../swagger/account.json');
+const express = require('express')
+const swaggerUi = require('swagger-ui-express')
+const routes = require('./routes/index')
+const swaggerDocument = require('../swagger/account.json')
 
-const app = express();
+const app = express()
 
-app.use(express.json());
+app.use(express.json())
 
-routes(app);
+routes(app)
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
-module.exports = app;
+module.exports = app

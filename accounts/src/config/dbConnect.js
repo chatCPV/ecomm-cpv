@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-const URL = process.env.MONGO_DATABASE;
+const URL = process.env.MONGO_DATABASE
 
-mongoose.connect(URL);
+mongoose.connect(URL)
 
-const db = mongoose.connection;
+const db = mongoose.connection
 
-module.exports = db;
+module.exports = db
