@@ -1,0 +1,117 @@
+openapi: 3.0.1
+info:
+  title: Ecomm-cpv / API Antifraud
+  description: API Antifraud
+  version: 0.0.1
+  termsOfService: https://mockapi.io/docs
+  contact: 
+    name: Chat CPV
+    email: marcelle.rosa@pagonxt.com
+  license:
+    name: Public license
+    url: https://www.gnu.org/licenses/gpl-3.0.html
+servers:
+  - url: https://63ce8fe2fdfe2764c725b20e.mockapi.io
+    description: API Antifraud
+paths:
+  /antifraud:
+    get: 
+      tags:
+      - Antifraud
+      summary: List all under analysis
+      responses:
+        200:
+          description: Success
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schemas/analysesSchema"
+        500:
+          description: Error
+          content: 
+            application/json:
+              example:  Failed
+    post: 
+      tags:
+      - Antifraud
+      summary: Create a new fraud analysis
+      responses:
+        201:
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/analysesSchema'
+        500:
+          description: Error 
+          content: 
+            application/json:
+              example: Failed
+  /antifraud/{id}:
+    parameters:
+    - name: id
+      in: path
+      schema:
+        type: string
+      required: true
+    get:
+      tags:
+        - Antifraud
+      summary: Detail fraud analysis by ID
+      responses: 
+        200:
+          description: Success
+          content: 
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/analysesSchema"
+        404:
+          description: Analysis not found
+          content:
+            application/json:
+              example: ID Not Found
+        500:           
+          description: Error
+          content: 
+            application/json:
+              example: Failed
+  /antifraud/approve/{id}:
+    parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+    post:
+      tags:
+      - Antifraud
+      summary: Approve fraud analysis status
+      responses:
+        204:
+          description: Success
+          content:
+            application/json:
+              example: Status successfully updated
+        409:
+          description: Conflict
+          content:
+            application/json:
+              example: Status can not be changed
+        500:
+          description: Error
+          content: 
+            application/json:
+              example: Failed
+components:
+  schemas:
+    analysesSchema:
+      type: object
+      properties:
+        id:
+          type: string
+        clientId:
+          type: string
+        transactionId:
+          type: string
+        status:
+          type: string

@@ -18,7 +18,6 @@ services:
     build: ./accounts/
     environment:
       MONGO_DATABASE: mongodb://admin:secret@mongodb:27017/ecomm-account?authSource=admin
-
     volumes:
       - ./accounts/:/app/accounts
     ports:
