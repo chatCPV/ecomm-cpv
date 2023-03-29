@@ -3,7 +3,7 @@ version: "3.9"
 services:
   mongodb:
     image: mongo:5.0
-    container_name: mongoDB
+    container_name: mongodb
     restart: always
     volumes:
       - mongodb:/data/db
@@ -17,7 +17,8 @@ services:
     container_name: ecommcpv-account
     build: ./accounts/
     environment:
-      MONGO_ACCOUNT_URL: mongodb://admin:secret@mongodb:27017/ecomm-account?authSource=admin
+      MONGO_DATABASE: mongodb://admin:secret@mongodb:27017/ecomm-account?authSource=admin
+
     volumes:
       - ./accounts/:/app/accounts
     ports:
@@ -29,7 +30,7 @@ services:
     container_name: ecommcpv-anti-fraud
     build: ./anti-fraud/
     environment:
-      MONGO_ANTI_URL: mongodb://admin:secret@mongodb:27017/ecomm-anti-fraud?authSource=admin
+      MONGO_DATABASE: mongodb://admin:secret@mongodb:27017/ecomm-anti-fraud?authSource=admin
     volumes:
       - ./anti-fraud/:/app/anti-fraud
     ports:
@@ -41,7 +42,7 @@ services:
     container_name: ecommcpv-transactions
     build: ./transactions/
     environment:
-      MONGO_TRANSACTIONS_URL: mongodb://admin:secret@mongodb:27017/ecomm-transactions?authSource=admin
+      MONGO_DATABASE: mongodb://admin:secret@mongodb:27017/ecomm-transactions?authSource=admin
     volumes:
       - ./transactions/:/app/transactions
     ports:
