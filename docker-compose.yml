@@ -16,6 +16,8 @@ services:
   account-container:
     container_name: ecommcpv-account
     build: ./accounts/
+    environment:
+      MONGO_ACCOUNT_URL: mongodb://admin:secret@mongodb:27017/ecomm-account?authSource=admin
     volumes:
       - ./accounts/:/app/accounts
     ports:
@@ -27,11 +29,7 @@ services:
     container_name: ecommcpv-anti-fraud
     build: ./anti-fraud/
     environment:
-      MONGO_ACCOUNT_HOST: "mongodb"
-      MONGO_ACCOUNT_USER: "admin"
-      MONGO_ACCOUNT_PASSWORD: "secret"
-      MONGO_DATABASE: "ecomm-anti-fraud"
-      MONGO_ACCOUNT_PORT: 27017
+      MONGO_ANTI_URL: mongodb://admin:secret@mongodb:27017/ecomm-anti-fraud?authSource=admin
     volumes:
       - ./anti-fraud/:/app/anti-fraud
     ports:
@@ -42,6 +40,8 @@ services:
   transactions-container:
     container_name: ecommcpv-transactions
     build: ./transactions/
+    environment:
+      MONGO_TRANSACTIONS_URL: mongodb://admin:secret@mongodb:27017/ecomm-transactions?authSource=admin
     volumes:
       - ./transactions/:/app/transactions
     ports:
