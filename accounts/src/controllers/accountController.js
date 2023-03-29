@@ -19,7 +19,7 @@ class AccountController {
     const acc = await Accounts.findOne({ 'card.cardNumber': card.cardNumber });
 
     if(!acc) {
-      return res.status(400).send({ message: "Invalid card number!" });
+      return res.status(400).send({ message: "Invalid info!" });
     } else if(cardValidation(card, acc)) {
       const accVerified = await Accounts.findById({ _id: acc._id }, { monthIncome: 1 });
       res.status(200).send(accVerified);

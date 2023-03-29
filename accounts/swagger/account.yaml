@@ -19,7 +19,7 @@ paths:
     post:
       tags:
       - Accounts
-      summary: List user Id and his month income
+      summary: List account Id and his month income
       requestBody:
         content:
           application/json:
@@ -36,7 +36,7 @@ paths:
           description: Invalid
           content: 
             aplication/json:
-              example: "Invalid card number or invalid info!"
+              example: "Invalid info!"
 
   /accounts/{id}:
     parameters:
@@ -49,10 +49,10 @@ paths:
     get:
       tags:
       - Accounts
-      summary: List an user by his Id
+      summary: List an account by his Id
       responses:
         200:
-          description: Sucesso
+          description: Account found
           content:
             application/json:
               schema:
