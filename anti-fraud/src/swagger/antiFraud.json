@@ -39,10 +39,10 @@
             }
           },
           "500": {
-            "description": "Error",
+            "description": "Failed",
             "content": {
               "application/json": {
-                "example": "Failed"
+                "example": "Error"
               }
             }
           }
@@ -65,10 +65,10 @@
             }
           },
           "500": {
-            "description": "Error",
+            "description": "Failed",
             "content": {
               "application/json": {
-                "example": "Failed"
+                "example": "Error"
               }
             }
           }
@@ -111,10 +111,10 @@
             }
           },
           "500": {
-            "description": "Error",
+            "description": "Failed",
             "content": {
               "application/json": {
-                "example": "Failed"
+                "example": "Error"
               }
             }
           }
@@ -139,26 +139,26 @@
         "summary": "Approve fraud analysis status",
         "responses": {
           "204": {
-            "description": "Success",
+            "description": "Status successfully updated",
             "content": {
               "application/json": {
-                "example": "Status successfully updated"
+                "example": "Success"
               }
             }
           },
           "409": {
-            "description": "Conflict",
+            "description": "Status can not be changed",
             "content": {
               "application/json": {
-                "example": "Status can not be changed"
+                "example": "Conflict"
               }
             }
           },
           "500": {
-            "description": "Error",
+            "description": "Failed",
             "content": {
               "application/json": {
-                "example": "Failed"
+                "example": "Error"
               }
             }
           }
