@@ -12,7 +12,7 @@ db.on('error', (err) => {
   console.log(err)
 })
 db.once('open', () => {
-  console.log('Connection successfull')
+  console.log('Connection successful')
 })
 
 const app = express()
