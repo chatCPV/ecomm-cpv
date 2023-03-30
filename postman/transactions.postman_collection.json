@@ -1,0 +1,563 @@
+{
+	"info": {
+		"_postman_id": "a6ebd3ef-40cf-4ac3-8e54-bdb75bb23da7",
+		"name": "transactions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transactionValue\": \"5000\",\r\n    \"cardHolder\": \"Túlio Yoshimura\",\r\n    \"cardNumber\": \"4984396850928015\",\r\n    \"cardExp\": \"11/2026\",\r\n    \"cardCvv\": \"592\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8003/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"transactions"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "If greater or equal to 50%",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transactionValue\": \"6000\",\r\n    \"cardHolder\": \"Túlio Yoshimura\",\r\n    \"cardNumber\": \"4984396850928015\",\r\n    \"cardExp\": \"11/2026\",\r\n    \"cardCvv\": \"592\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8003/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8003",
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "85"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"55-NPU5j7jcaqeb+GezEB72lcMnhl8\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Mar 2023 12:13:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"transactionId\": \"64257ce1208f45ba95a89b8e\",\n    \"clientId\": \"12\",\n    \"status\": \"underAnalysis\"\n}"
+				},
+				{
+					"name": "If less than 50%",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transactionValue\": \"4000\",\r\n    \"cardHolder\": \"Túlio Yoshimura\",\r\n    \"cardNumber\": \"4984396850928015\",\r\n    \"cardExp\": \"11/2026\",\r\n    \"cardCvv\": \"592\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8003/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8003",
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "64"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"40-RVmcvPQ2tS56lkz090VAAi5SW3I\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Mar 2023 12:14:36 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"transactionId\": \"64257d2c208f45ba95a89b91\",\n    \"status\": \"approved\"\n}"
+				},
+				{
+					"name": "If invalid infos",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transactionValue\": \"4000\",\r\n    \"cardHolder\": \"Túlio Yoshimur\",\r\n    \"cardNumber\": \"4984396850928015\",\r\n    \"cardExp\": \"11/2026\",\r\n    \"cardCvv\": \"592\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8003/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8003",
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "64"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"40-vgJcvDWYgXB2WsNtyVWxhqRdGz0\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Mar 2023 12:15:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"transactionId\": \"64257d57208f45ba95a89b93\",\n    \"status\": \"rejected\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Detail a transaction",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8003/transactions/64257ce1208f45ba95a89b8e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"transactions",
+						"64257ce1208f45ba95a89b8e"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Detail a transaction",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8003/transactions/64257ce1208f45ba95a89b8e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8003",
+							"path": [
+								"transactions",
+								"64257ce1208f45ba95a89b8e"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "85"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"55-NPU5j7jcaqeb+GezEB72lcMnhl8\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Mar 2023 12:16:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"transactionId\": \"64257ce1208f45ba95a89b8e\",\n    \"clientId\": \"12\",\n    \"status\": \"underAnalysis\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Approve transaction",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8003/transactions/approve/64257f9eceb0b3fe0ff52374",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"transactions",
+						"approve",
+						"64257f9eceb0b3fe0ff52374"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Approve transaction",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8003/transactions/approve/64257f9eceb0b3fe0ff52374",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8003",
+							"path": [
+								"transactions",
+								"approve",
+								"64257f9eceb0b3fe0ff52374"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "34"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"22-we4SOfCWQEB0ULIoq/owu0EB3vI\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Mar 2023 12:25:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Transaction Approved\"\n}"
+				},
+				{
+					"name": "If not underAnalysis",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8003/transactions/approve/64257f9eceb0b3fe0ff52374",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8003",
+							"path": [
+								"transactions",
+								"approve",
+								"64257f9eceb0b3fe0ff52374"
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "49"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"31-CqxdJvrFsI1eCzsv2ZbfHzUcJZo\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Mar 2023 12:25:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Status can not be changed: approved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Reject transaction",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8003/transactions/reject/64257fd5ceb0b3fe0ff5237a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"transactions",
+						"reject",
+						"64257fd5ceb0b3fe0ff5237a"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Reject transaction",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8003/transactions/reject/64257fd5ceb0b3fe0ff5237a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8003",
+							"path": [
+								"transactions",
+								"reject",
+								"64257fd5ceb0b3fe0ff5237a"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "34"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"22-qSenMq2sb5CjxzIZSH+OQFjKZUQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Mar 2023 12:26:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Transaction Rejected\"\n}"
+				},
+				{
+					"name": "If not underAnalysis",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8003/transactions/reject/64257fd5ceb0b3fe0ff5237a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8003",
+							"path": [
+								"transactions",
+								"reject",
+								"64257fd5ceb0b3fe0ff5237a"
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "49"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"31-w3Ynn57jlrH2G9Z7k14y1CAjDmw\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Mar 2023 12:26:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Status can not be changed: rejected\"\n}"
+				}
+			]
+		}
+	]
+}

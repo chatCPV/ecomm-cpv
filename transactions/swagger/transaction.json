@@ -1,0 +1,193 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Transactions",
+    "description": "API Transactions",
+    "version": "0.0.1"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8003",
+      "description": "API Transactions"
+    }
+  ],
+  "paths": {
+    "/transactions": {
+      "post": {
+        "summary": "Create new transaction",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Transaction"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Transaction successfully created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transaction"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Transaction can not be created",
+            "content": {
+              "application/json": {
+                "example": "Bad Request"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transactions/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "schema": {
+            "type": "string"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get transaction by ID",
+        "responses": {
+          "200": {
+            "description": "Transaction successfully received",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionById"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Transaction not found",
+            "content": {
+              "application/json": {
+                "example": "Not Found"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transactions/approve/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "schema": {
+            "type": "string"
+          },
+          "required": true
+        }
+      ],
+      "patch": {
+        "summary": "Approve transaction by ID",
+        "responses": {
+          "200": {
+            "description": "Transaction approved",
+            "content": {
+              "application/json": {
+                "example": "Transaction approved"
+              }
+            }
+          },
+          "409": {
+            "description": "Status can not be changed",
+            "content": {
+              "application/json": {
+                "example": "Status can not be changed"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transactions/reject/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "schema": {
+            "type": "string"
+          },
+          "required": true
+        }
+      ],
+      "patch": {
+        "summary": "Reject transaction by ID",
+        "responses": {
+          "200": {
+            "description": "Transaction rejected",
+            "content": {
+              "application/json": {
+                "example": "Transaction rejected"
+              }
+            }
+          },
+          "409": {
+            "description": "Status can not be changed",
+            "content": {
+              "application/json": {
+                "example": "Status can not be changed"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Transaction": {
+        "type": "object",
+        "properties": {
+          "transactionValue": {
+            "type": "number"
+          },
+          "cardHolder": {
+            "type": "string"
+          },
+          "cardNumber": {
+            "type": "string"
+          },
+          "cardExp": {
+            "type": "string"
+          },
+          "cardCvv": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      },
+      "TransactionById": {
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "type": "string"
+          },
+          "clientId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
