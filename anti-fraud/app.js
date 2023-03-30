@@ -19,7 +19,7 @@ const app = express()
 
 routes(app)
 
-app.use('/antifraud/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+app.use('/antifraud-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 app.listen(PORT)
 
