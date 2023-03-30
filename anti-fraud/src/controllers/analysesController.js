@@ -78,11 +78,11 @@ class AnalysesController {
       } else if (!singleAnalysis) {
         res.status(404).send({ message: 'Analysis not found' })
       } else {
-        const acc = await useApiAccounts(analyses.clientId);
+        const acc = await useApiAccounts(analyses.clientId)
         const infoAnalyses = analyses.toJSON()
         const response = {
-          client: {...acc},
-          ...infoAnalyses
+          client: { ...acc },
+          ...infoAnalyses,
         }
         res.status(200).send(response)
       }
