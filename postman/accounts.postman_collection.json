@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "66eebd65-181f-4aa9-aa0f-736fc3f0f3a7",
+		"name": "accounts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Detail an account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/accounts/642495c99876117b32bbf8cb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"accounts",
+						"642495c99876117b32bbf8cb"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Detail an account",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/accounts/642495c99876117b32bbf8cb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"accounts",
+								"642495c99876117b32bbf8cb"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "372"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"174-ZUP9wYlUCPpogmeyS0S7JOyOhYQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 Mar 2023 19:48:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"address\": {\n        \"street\": \"Quadra 511 Conjunto 11\",\n        \"number\": \"88\",\n        \"neighborhood\": \"Recanto das Emas\",\n        \"zipCode\": \"95520975\",\n        \"city\": \"Brasília\",\n        \"state\": \"DF\"\n    },\n    \"_id\": \"642495c99876117b32bbf8cb\",\n    \"name\": \"Alice Gonçalves\",\n    \"email\": \"goncalvesalice@hotmail.com\",\n    \"password\": \"0iDCWlg7Wq\",\n    \"createdDate\": \"2023-03-29T19:47:21.222Z\",\n    \"cpf\": \"28636426006\",\n    \"phone\": \"61 923354645\",\n    \"monthIncome\": 48990\n}"
+				}
+			]
+		},
+		{
+			"name": "Validate client data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Mariana Hamada\",\r\n    \"cardNumber\": \"4984082607880291\",\r\n    \"cardExp\": \"12/2029\",\r\n    \"cardCvv\": \"712\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/accounts/cardVerify",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"accounts",
+						"cardVerify"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Validate client data",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Mariana Hamada\",\r\n    \"cardNumber\": \"4984082607880291\",\r\n    \"cardExp\": \"12/2029\",\r\n    \"cardCvv\": \"712\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/accounts/cardVerify",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"accounts",
+								"cardVerify"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"35-oBlwzwYsXW5U+wA9eCKLQypXUuQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 Mar 2023 19:52:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"642495c99876117b32bbf8ca\",\n    \"monthIncome\": 8900\n}"
+				}
+			]
+		}
+	]
+}

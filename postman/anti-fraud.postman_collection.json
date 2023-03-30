@@ -1,0 +1,496 @@
+{
+	"info": {
+		"_postman_id": "5f43decc-2825-40f0-8a2a-6e61f35668a4",
+		"name": "anti-fraud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List all under analysis",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/antifraud",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"antifraud"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List all under analysis",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/antifraud",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"antifraud"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "299"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"12b-7Ov4Z0Bu9mmWl0e3fZNftgpBwTQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Mar 2023 16:32:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"6421e3d112e233e1ea10a2c2\",\n        \"clientId\": \"63c006574f7255396c035c31\",\n        \"transactionId\": \"63c006574f7255396c035c31\",\n        \"status\": \"underAnalysis\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"64231292472e0831868b1e66\",\n        \"clientId\": \"63c006574f7255396c035c31\",\n        \"transactionId\": \"63c006574f7255396c035c31\",\n        \"status\": \"underAnalysis\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Detail an analysis",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/antifraud/6424974b8e5aa8fa98555df7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"antifraud",
+						"6424974b8e5aa8fa98555df7"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Detail an analysis",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/antifraud/6421e3d112e233e1ea10a2c2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"antifraud",
+								"6421e3d112e233e1ea10a2c2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "143"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8f-Mh+EbhgkJAI3jYZc5rDymhquX2E\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 Mar 2023 18:02:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"6421e3d112e233e1ea10a2c2\",\n    \"clientId\": \"63c006574f7255396c035c31\",\n    \"transactionId\": \"63c006574f7255396c035c31\",\n    \"status\": \"reproved\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Create new analysis",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"clientId\": {\r\n        \"_id\": \"63c006574f7255396c035c31\"\r\n    },\r\n    \"transactionId\": {\r\n        \"_id\": \"63c006574f7255396c035c31\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/antifraud",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"antifraud"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create new analysis",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": {\r\n        \"_id\": \"63c006574f7255396c035c31\"\r\n    },\r\n    \"transactionId\": {\r\n        \"_id\": \"63c006574f7255396c035c31\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8002/antifraud",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"antifraud"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "148"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"94-6PNr1SrdEVSw7OdKbQE8hyD6LUE\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 Mar 2023 18:43:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"clientId\": \"63c006574f7255396c035c31\",\n    \"transactionId\": \"63c006574f7255396c035c31\",\n    \"status\": \"underAnalysis\",\n    \"_id\": \"6421e3d112e233e1ea10a2c2\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Approve analysis",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/antifraud/approve/6425801bf942f8f6d695eabb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"antifraud",
+						"approve",
+						"6425801bf942f8f6d695eabb"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Approve analysis",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/antifraud/approve/6421e3d112e233e1ea10a2c2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"antifraud",
+								"approve",
+								"6421e3d112e233e1ea10a2c2"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"29-dsyKWlahryQ0eu1YEJQvsIBVXUc\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Mar 2023 20:06:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "If not underAnalysis",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/antifraud/approve/6425801bf942f8f6d695eabb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"antifraud",
+								"approve",
+								"6425801bf942f8f6d695eabb"
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "25"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"19-X7Qci4B+uXjubN30vkD1ph5h5hQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Mar 2023 12:27:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Status can not be changed"
+				}
+			]
+		},
+		{
+			"name": "Reprove analysis",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/antifraud/reprove/6425801bf942f8f6d695eabb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"antifraud",
+						"reprove",
+						"6425801bf942f8f6d695eabb"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Reprove analysis",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/antifraud/reprove/6421e3d112e233e1ea10a2c2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"antifraud",
+								"reprove",
+								"6421e3d112e233e1ea10a2c2"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"29-dsyKWlahryQ0eu1YEJQvsIBVXUc\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Mar 2023 20:09:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "If not underAnalysis",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/antifraud/reprove/6425801bf942f8f6d695eabb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"antifraud",
+								"reprove",
+								"6425801bf942f8f6d695eabb"
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "25"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"19-X7Qci4B+uXjubN30vkD1ph5h5hQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Mar 2023 12:27:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Status can not be changed"
+				}
+			]
+		}
+	]
+}
