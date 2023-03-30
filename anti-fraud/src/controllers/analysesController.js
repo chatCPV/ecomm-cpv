@@ -28,7 +28,7 @@ class AnalysesController {
     const { id } = req.params
     const currentAnalysis = await AnalysisModel.findById(id, { status: 1 })
 
-    if (!currentAnalysis.status === statuses.ANALYSIS) {
+    if (currentAnalysis.status !== statuses.ANALYSIS) {
       res.status(409).send('Status can not be changed')
     } else {
       AnalysisModel.findByIdAndUpdate(
@@ -50,7 +50,7 @@ class AnalysesController {
     const { id } = req.params
     const currentAnalysis = await AnalysisModel.findById(id, { status: 1 })
 
-    if (!currentAnalysis.status === statuses.ANALYSIS) {
+    if (currentAnalysis.status !== statuses.ANALYSIS) {
       res.status(409).send('Status can not be changed')
     } else {
       AnalysisModel.findByIdAndUpdate(
