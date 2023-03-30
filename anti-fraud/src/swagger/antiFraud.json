@@ -53,6 +53,15 @@
           "Antifraud"
         ],
         "summary": "Create a new fraud analysis",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CardAnalyses"
+              }
+            }
+          }
+        },
         "responses": {
           "201": {
             "description": "Created",
@@ -164,6 +173,50 @@
           }
         }
       }
+    },
+    "/antifraud/reprove/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "schema": {
+            "type": "string"
+          },
+          "required": true
+        }
+      ],
+      "post": {
+        "tags": [
+          "Antifraud"
+        ],
+        "summary": "Reprove fraud analysis status",
+        "responses": {
+          "204": {
+            "description": "Status successfully updated",
+            "content": {
+              "application/json": {
+                "example": "Success"
+              }
+            }
+          },
+          "409": {
+            "description": "Status can not be changed",
+            "content": {
+              "application/json": {
+                "example": "Conflict"
+              }
+            }
+          },
+          "500": {
+            "description": "Failed",
+            "content": {
+              "application/json": {
+                "example": "Error"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -182,6 +235,27 @@
           },
           "status": {
             "type": "string"
+          }
+        }
+      },
+      "CardAnalyses": {
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "object",
+            "properties": {
+              "_id": {
+                "type": "string"
+              }
+            }
+          },
+          "transactionId": {
+            "type": "object",
+            "properties": {
+              "_id": {
+                "type": "string"
+              }
+            }
           }
         }
       }
