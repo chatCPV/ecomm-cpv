@@ -5,7 +5,7 @@ async function createTransaction(req, res) {
   try {
     const transaction = req.body
     if (!transaction) {
-      throw new Error('Requisição inválida')
+      throw new Error('Invalid request')
     }
     const {
       transactionValue,
@@ -21,7 +21,7 @@ async function createTransaction(req, res) {
       || cardExp !== card.cardExp
       || cardCvv !== card.cardCvv
     ) {
-      const transactionRejected = { ...transaction, status: 'Rejeitada' }
+      const transactionRejected = { ...transaction, status: 'rejected' }
       const newTransaction = await Transactions.create(transactionRejected)
       const { _id: transactionId, status } = newTransaction
       const newTransactionRejected = {
@@ -33,7 +33,7 @@ async function createTransaction(req, res) {
     }
 
     if (transactionValue >= (monthIncome / 2)) {
-      const transactionUnderReview = { ...transaction, status: 'Em análise' }
+      const transactionUnderReview = { ...transaction, status: 'underAnalysis' }
       const newTransaction = await Transactions.create(transactionUnderReview)
       const { _id: transactionId, status } = newTransaction
       const newTransactionUnderReview = {
@@ -47,7 +47,7 @@ async function createTransaction(req, res) {
         .json(newTransactionUnderReview)
     }
 
-    const approvedTransaction = { ...transaction, status: 'Aprovada' }
+    const approvedTransaction = { ...transaction, status: 'approved' }
     const newTransaction = await Transactions.create(approvedTransaction)
     const { _id: transactionId, status } = newTransaction
     const newApprovedTransaction = {
@@ -57,7 +57,7 @@ async function createTransaction(req, res) {
 
     return res.status(201).json(newApprovedTransaction)
   } catch (error) {
-    if (error.message === 'Requisição inválida') {
+    if (error.message === 'Invalid request') {
       return res.status(400).json(error.message)
     }
 
@@ -70,7 +70,7 @@ async function getTransactionById(req, res) {
     const { id } = req.params
     const transactionInfo = await Transactions.findById(id)
     if (!transactionInfo) {
-      throw new Error('Transação não encontrada')
+      throw new Error('Transaction not found')
     }
 
     const { _id: transactionId, status } = transactionInfo
@@ -83,7 +83,7 @@ async function getTransactionById(req, res) {
 
     return res.status(200).json(transaction)
   } catch (error) {
-    if (error.message === 'Transação não encontrada') {
+    if (error.message === 'Transaction not found') {
       return res.status(404).json(error.message)
     }
 
@@ -95,20 +95,20 @@ async function updateTransactionByIdApproved(req, res) {
   const { id } = req.params
   const transaction = await Transactions.findById(id)
   if (transaction.status === 'Em análise') {
-    await Transactions.findByIdAndUpdate(id, { $set: { status: 'Aprovada' } })
-    return res.status(200).send({ message: 'Transação Aprovada' })
+    await Transactions.findByIdAndUpdate(id, { $set: { status: 'approved' } })
+    return res.status(200).send({ message: 'Transaction Approved' })
   }
-  return res.status(409).send({ message: `A transação esta com status de ${transaction.status}` })
+  return res.status(409).send({ message: `Transaction status: ${transaction.status}` })
 }
 
 async function updateTransactionByIdRejected(req, res) {
   const { id } = req.params
   const transaction = await Transactions.findById(id)
   if (transaction.status === 'Em análise') {
-    await Transactions.findByIdAndUpdate(id, { $set: { status: 'Rejeitada' } })
-    return res.status(200).send({ message: 'Transação Rejeitada' })
+    await Transactions.findByIdAndUpdate(id, { $set: { status: 'rejected' } })
+    return res.status(200).send({ message: 'Transaction Rejected' })
   }
-  return res.status(409).send({ message: `A transação esta com status de ${transaction.status}` })
+  return res.status(409).send({ message: `Transaction status: ${transaction.status}` })
 }
 
 module.exports = {

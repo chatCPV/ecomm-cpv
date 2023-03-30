@@ -5,9 +5,9 @@ const db = require('./config/dbconnect')
 const routes = require('./routes/index')
 const swaggerDocument = require('../swagger/transaction.json')
 
-db.on('error', console.log.bind(console, 'Erro de conexão'))
+db.on('error', console.log.bind(console, 'Connection has failed!'))
 db.once('open', () => {
-  console.log('Conexão feita com sucesso')
+  console.log('Database connection successful')
 })
 
 const app = express()
