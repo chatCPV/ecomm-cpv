@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5f43decc-2825-40f0-8a2a-6e61f35668a4",
+		"_postman_id": "c56c4c71-57fe-4817-b448-e7107000cd00",
 		"name": "anti-fraud",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -84,7 +84,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8002/antifraud/6424974b8e5aa8fa98555df7",
+					"raw": "http://localhost:8002/antifraud/6425d4d4b3bb7e01156a932e",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -92,7 +92,7 @@
 					"port": "8002",
 					"path": [
 						"antifraud",
-						"6424974b8e5aa8fa98555df7"
+						"6425d4d4b3bb7e01156a932e"
 					]
 				}
 			},
@@ -103,7 +103,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8002/antifraud/6421e3d112e233e1ea10a2c2",
+							"raw": "http://localhost:8002/antifraud/6425d4d4b3bb7e01156a932e",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -111,7 +111,7 @@
 							"port": "8002",
 							"path": [
 								"antifraud",
-								"6421e3d112e233e1ea10a2c2"
+								"6425d4d4b3bb7e01156a932e"
 							]
 						}
 					},
@@ -129,15 +129,15 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "143"
+							"value": "530"
 						},
 						{
 							"key": "ETag",
-							"value": "W/\"8f-Mh+EbhgkJAI3jYZc5rDymhquX2E\""
+							"value": "W/\"212-zGPbk8gEUwwJYHmzMVT/Zpa9te8\""
 						},
 						{
 							"key": "Date",
-							"value": "Wed, 29 Mar 2023 18:02:19 GMT"
+							"value": "Thu, 30 Mar 2023 18:39:36 GMT"
 						},
 						{
 							"key": "Connection",
@@ -149,7 +149,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"_id\": \"6421e3d112e233e1ea10a2c2\",\n    \"clientId\": \"63c006574f7255396c035c31\",\n    \"transactionId\": \"63c006574f7255396c035c31\",\n    \"status\": \"reproved\",\n    \"__v\": 0\n}"
+					"body": "{\n    \"client\": {\n        \"address\": {\n            \"street\": \"Quadra 511 Conjunto 11\",\n            \"number\": \"88\",\n            \"neighborhood\": \"Recanto das Emas\",\n            \"zipCode\": \"95520975\",\n            \"city\": \"Brasília\",\n            \"state\": \"DF\"\n        },\n        \"_id\": \"6422e779e24643c2b69b5a4f\",\n        \"name\": \"Alice Gonçalves\",\n        \"email\": \"goncalvesalice@hotmail.com\",\n        \"password\": \"0iDCWlg7Wq\",\n        \"createdDate\": \"2023-03-28T13:11:21.184Z\",\n        \"cpf\": \"28636426006\",\n        \"phone\": \"61 923354645\",\n        \"monthIncome\": 48990\n    },\n    \"_id\": \"6425d4d4b3bb7e01156a932e\",\n    \"clientId\": \"6422e779e24643c2b69b5a4f\",\n    \"transactionId\": \"63c006574f7255396c035c31\",\n    \"status\": \"underAnalysis\",\n    \"__v\": 0\n}"
 				}
 			]
 		},
@@ -309,7 +309,7 @@
 						}
 					],
 					"cookie": [],
-					"body": null
+					"body": ""
 				},
 				{
 					"name": "If not underAnalysis",
@@ -433,7 +433,7 @@
 						}
 					],
 					"cookie": [],
-					"body": null
+					"body": ""
 				},
 				{
 					"name": "If not underAnalysis",
