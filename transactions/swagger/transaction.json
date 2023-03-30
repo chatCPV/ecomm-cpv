@@ -14,7 +14,7 @@
   "paths": {
     "/transactions": {
       "post": {
-        "summary": "Insere uma nova transação",
+        "summary": "Create new transaction",
         "requestBody": {
           "required": true,
           "content": {
@@ -27,7 +27,7 @@
         },
         "responses": {
           "201": {
-            "description": "Transação inserida com sucesso",
+            "description": "Transaction successfully created",
             "content": {
               "application/json": {
                 "schema": {
@@ -51,10 +51,10 @@
         }
       ],
       "get": {
-        "summary": "Recupera uma transação pelo id",
+        "summary": "Get transaction by ID",
         "responses": {
           "200": {
-            "description": "Transação listada com sucesso",
+            "description": "Transaction successfully received",
             "content": {
               "application/json": {
                 "schema": {
@@ -64,7 +64,7 @@
             }
           },
           "404": {
-            "description": "Transação não encontrada",
+            "description": "Transaction not found",
             "content": {
               "application/json": {
                 "example": "Not Found"

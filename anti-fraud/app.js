@@ -12,14 +12,14 @@ db.on('error', (err) => {
   console.log(err)
 })
 db.once('open', () => {
-  console.log('Connetciont successfull')
+  console.log('Connection successfull')
 })
 
 const app = express()
 
 routes(app)
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+app.use('/antifraud/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 app.listen(PORT)
 

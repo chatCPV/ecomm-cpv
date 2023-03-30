@@ -9,6 +9,6 @@ app.use(express.json())
 
 routes(app)
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+app.use('/accounts/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 module.exports = app

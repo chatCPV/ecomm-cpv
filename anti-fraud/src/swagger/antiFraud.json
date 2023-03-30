@@ -16,7 +16,7 @@
   },
   "servers": [
     {
-      "url": "https://63ce8fe2fdfe2764c725b20e.mockapi.io",
+      "url": "http://localhost:8002",
       "description": "API Antifraud"
     }
   ],

@@ -94,21 +94,21 @@ async function getTransactionById(req, res) {
 async function updateTransactionByIdApproved(req, res) {
   const { id } = req.params
   const transaction = await Transactions.findById(id)
-  if (transaction.status === 'Em análise') {
+  if (transaction.status === 'underAnalysis') {
     await Transactions.findByIdAndUpdate(id, { $set: { status: 'approved' } })
     return res.status(200).send({ message: 'Transaction Approved' })
   }
-  return res.status(409).send({ message: `Transaction status: ${transaction.status}` })
+  return res.status(409).send({ message: `Status can not be changed: ${transaction.status}` })
 }
 
 async function updateTransactionByIdRejected(req, res) {
   const { id } = req.params
   const transaction = await Transactions.findById(id)
-  if (transaction.status === 'Em análise') {
+  if (transaction.status === 'underAnalysis') {
     await Transactions.findByIdAndUpdate(id, { $set: { status: 'rejected' } })
     return res.status(200).send({ message: 'Transaction Rejected' })
   }
-  return res.status(409).send({ message: `Transaction status: ${transaction.status}` })
+  return res.status(409).send({ message: `Status can not be changed: ${transaction.status}` })
 }
 
 module.exports = {

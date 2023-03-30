@@ -11,7 +11,7 @@ const transactionsRouter = Router()
 transactionsRouter
   .get('/transactions/:id', getTransactionById)
   .post('/transactions', createTransaction)
-  .put('/transactions/:id/approve', updateTransactionByIdApproved)
-  .put('/transactions/:id/reject', updateTransactionByIdRejected)
+  .patch('/transactions/approve/:id', updateTransactionByIdApproved)
+  .patch('/transactions/reject/:id', updateTransactionByIdRejected)
 
 module.exports = transactionsRouter
