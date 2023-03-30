@@ -11,13 +11,13 @@ Final project for Alura LevelUp! at PagoNxt.
 - [Stacks](#stacks)
 - [Installation](#installation)
 
-## Description 
+## Description
 
 This is an ecommerce with three microservices, accounts, anti-fraud and transactions.
 
-- **Accounts** holds users data, including payment address and login info.
+- **Accounts** holds users data, including payment, address and login info.
 - **Transactions** holds all transaction flow and communicates with both accounts and anti-fraud during it's process.
-- **Anti-fraud** is where a human verification happens when a transaction value is greater or equal to 50% of a user montly income.
+- **Anti-fraud** is where a human verification happens when a transaction value is greater or equal to 50% of an user montly income.
 
 ## Stacks
 
@@ -57,3 +57,4 @@ This is an ecommerce with three microservices, accounts, anti-fraud and transact
   ```docker
   docker-compose up --build
   ```
+ 

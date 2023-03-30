@@ -1,5 +1,6 @@
 const AnalysisModel = require('../models/analysisModel')
 const statuses = require('../helpers/statuses')
+const useApiAccounts = require('./api')
 
 class AnalysesController {
   static createAnalysis = (req, res) => {
@@ -71,13 +72,19 @@ class AnalysesController {
   static getAnalysisById = (req, res) => {
     const { id } = req.params
 
-    const singleAnalysis = AnalysisModel.findById(id, (err, analyses) => {
+    const singleAnalysis = AnalysisModel.findById(id, async (err, analyses) => {
       if (err) {
         res.status(500).send({ message: `${err.message} - Failed` })
       } else if (!singleAnalysis) {
         res.status(404).send({ message: 'Analysis not found' })
       } else {
-        res.status(200).send(analyses.toJSON())
+        const acc = await useApiAccounts(analyses.clientId)
+        const infoAnalyses = analyses.toJSON()
+        const response = {
+          client: { ...acc },
+          ...infoAnalyses,
+        }
+        res.status(200).send(response)
       }
     })
   }
