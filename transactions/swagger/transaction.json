@@ -35,6 +35,14 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Transaction can not be created",
+            "content": {
+              "application/json": {
+                "example": "Bad Request"
+              }
+            }
           }
         }
       }
@@ -68,6 +76,72 @@
             "content": {
               "application/json": {
                 "example": "Not Found"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transactions/approve/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "schema": {
+            "type": "string"
+          },
+          "required": true
+        }
+      ],
+      "patch": {
+        "summary": "Approve transaction by ID",
+        "responses": {
+          "200": {
+            "description": "Transaction approved",
+            "content": {
+              "application/json": {
+                "example": "Transaction approved"
+              }
+            }
+          },
+          "409": {
+            "description": "Status can not be changed",
+            "content": {
+              "application/json": {
+                "example": "Status can not be changed"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transactions/reject/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "schema": {
+            "type": "string"
+          },
+          "required": true
+        }
+      ],
+      "patch": {
+        "summary": "Reject transaction by ID",
+        "responses": {
+          "200": {
+            "description": "Transaction rejected",
+            "content": {
+              "application/json": {
+                "example": "Transaction rejected"
+              }
+            }
+          },
+          "409": {
+            "description": "Status can not be changed",
+            "content": {
+              "application/json": {
+                "example": "Status can not be changed"
               }
             }
           }
